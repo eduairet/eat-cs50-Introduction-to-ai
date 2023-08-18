@@ -1,4 +1,4 @@
-# CS50's Introduction to Artificial Intelligence with Python
+# [CS50's Introduction to Artificial Intelligence with Python](https://www.edx.org/learn/artificial-intelligence/harvard-university-cs50-s-introduction-to-artificial-intelligence-with-python)
 
 Notes and exercises by Eduardo Aire Torres
 
@@ -20,7 +20,24 @@ Notes and exercises by Eduardo Aire Torres
 -   Languages
     -   How a computer process natural language
 
-## [Content](./content/)
+## Content
+
+### [Notes](./content/notes/)
 
 -   [Search](./content/notes/search.md)
--   [Adversarial](./content/notes/adversarial.md)
+-   [Adversarial Search](./content/notes/adversarial.md)
+
+### [Exercises](./exercises/)
+
+```SHELL
+# To run all of the exercises create a python env
+python3 -m venv .venv
+# Activate it
+source .venv/bin/activate
+# Install the requirements
+pip install -r requirements.txt
+# Run the projects
+python src0/maze.py
+```
+
+-   [Maze](./exercises/src0/)

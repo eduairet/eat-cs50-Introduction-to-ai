@@ -1,4 +1,4 @@
-# Adversarial situation
+# Adversarial Search
 
 -   Situations where there’s an obstacle between the goal and the current state, like an adversary in a game
 -   Algorithms
@@ -40,29 +40,31 @@
             -   Checks final score
         -   Optimizations
 
-            -   When there are several possible next moves we can take for granted the best possible solutions by discarding the ones that can’t be better than the ones we have
+            -   Alpha-Beta Pruning
 
-                ```
-                GAME
+                -   When there are several possible next moves we can take for granted the best possible solutions by discarding the ones that can’t be better than the ones we have
 
-                4
-                |-4
-                |-8
-                |-5
+                    ```
+                    GAME
 
-                <=3
-                |-9
-                |-3
-                |-?
+                    4
+                    |-4
+                    |-8
+                    |-5
 
-                <=2
-                |-2
-                |-?
-                |-?
+                    <=3
+                    |-9
+                    |-3
+                    |-?
 
-                We’ll just need to check for values less than 4 to get an optimal decision
-                ```
+                    <=2
+                    |-2
+                    |-?
+                    |-?
 
--   Depth-Limited Minimax
--   It acts like minimax but limiting the number of options to take in count
--   It uses an `evaluation function` to estimate the expected utility of the game from a given state
+                    We’ll just need to check for values less than 4 to get an optimal decision
+                    ```
+
+    -   Depth-Limited Minimax
+        -   It acts like minimax but limiting the number of options to take in count
+        -   It uses an `evaluation function` to estimate the expected utility of the game from a given state
