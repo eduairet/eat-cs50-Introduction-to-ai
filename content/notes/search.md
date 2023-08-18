@@ -1,0 +1,62 @@
+# Search
+
+-   Agent
+    -   Entity that perceives an environment and acts upon that environment
+-   State
+    -   Config of the state in its environment
+    -   Initial state -> Starting point where we figure out the way to come to the desire state
+-   Actions
+    -   Actions to achieve the desired state _s_
+    -   `action(s): () => newState`
+-   Transition model
+    -   State output description after being processed by an action
+    -   `result(s, a)`
+-   State space
+    -   The set of all states reachable from the initial state by any sequence of actions
+    -   It can be represented as a node mesh
+-   Goal test
+    -   A way to determine which state is the goal state
+-   Path cost
+    -   Numerical cost associated with a given path
+    -   We’ll often need to find a path that has less expensive costs
+-   Search problem
+    -   `initial state` > `actions` > `transition model` > `goal test` > `path cost function`
+    -   Solution
+        -   The one with the lowest path cost from all of the possible solutions
+-   Node: data structure that keeps track of
+    -   State
+    -   Parent node (if not genesis)
+    -   Action applied to parent to get nodes
+    -   a path cost from initial state to node
+-   Our approach:
+    -   Frontier: All possible options to explore
+    -   Repeat:
+        -   If frontier is empty, there’s no solution
+        -   Remove a node from the frontier
+        -   If the node is a goal we found the solution
+        -   Expand node: add node to the frontier
+    -   Example
+        -   Find the path from A to B
+            -   Initial state A
+            -   Repeat:
+                -   If no further point frontier is empty
+                -   Visit next point, if is a goal node we found the solution
+                -   I is not the goal state we go to the next or previous node to find the right path
+                -   Add the node to the explored state to avoid repeating a previously explored state
+-   Search algorithms
+    -   Uninformed search algorithms
+        -   Search that doesn’t use problem-specific knowledge
+        -   depth-first search
+            -   Search algorithm that expands the deepest node in the frontier using a stack last-in-first-out
+        -   breadth-first search
+            -   Explores the shallowest node in the frontier using a queue `first-in-first-out`
+    -   Informed search algorithms
+        -   Use knowledge specific to the problem to find solutions more efficiently
+        -   Greedy best-search first
+            -   Search algorithm that that expands the closest node to the goal
+            -   Estimated by a heuristic function `h(n)` like Manhattan distance
+        -   A\* search
+            -   Search algorithm that expands the node with the lowest value `g(n) + h(n)`
+                -   `g(n)` > Cost to reach the node
+                -   `h(n)` > Estimated cost to the goal
+            -   This kind of search will be optimal only if `h(n)` doesn’t overestimates true cost of `h(n)` is consistent `h(n)<=h(n\*\*1)+c`
